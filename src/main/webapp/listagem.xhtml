@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head><title>Página de listagem</title></h:head>
+	<h:body>
+		<h:form id="formulario">
+			 <p:messages id="messages" showDetail="true" closable="true">
+	            <p:autoUpdate/>
+	        </p:messages>
+			<p:panel header="Página de listagem">
+				<p:link outcome="index" value="voltar"/>
+				<p:dataTable value="#{funcionarioBean.lista}" var="f">
+					<p:column headerText="Nome"><p:outputLabel value="#{f.nome}"/></p:column>
+					<p:column headerText="Admissão"><p:outputLabel value="#{f.dataAdmissao}"/></p:column>
+					<p:column headerText="Contrato"><p:outputLabel value="#{f.tipoContrato}"/></p:column>
+					<p:column headerText="Setor"><p:outputLabel value="#{f.setor}"/></p:column>
+					<p:column headerText="Cargo"><p:outputLabel value="#{f.cargo}"/></p:column>
+					<p:column headerText="Avaliação"><p:outputLabel value="#{f.notaAvaliacao}"/></p:column>
+					<p:column headerText="Atividades"><p:outputLabel value="#{f.atividades}"/></p:column>
+					
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</h:body>
+	
+</html>

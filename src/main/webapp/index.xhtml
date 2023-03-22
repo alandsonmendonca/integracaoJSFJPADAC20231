@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head><title>Página de cadastro</title></h:head>
+	<h:body>
+		<h:form id="formulario">
+			 <p:messages id="messages" showDetail="true" closable="true">
+	            <p:autoUpdate/>
+	        </p:messages>
+			<p:panel header="Página de cadastro">
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Nome: "/>
+					<p:inputText value="#{funcionarioBean.funcionario.nome}" required="true" requiredMessage="Campo nome é obrigatório"/>
+					
+					<p:outputLabel value="Data admissão: "/>
+					<p:datePicker value="#{funcionarioBean.funcionario.dataAdmissao}"/>
+					
+					
+					<p:outputLabel value="Contrato: "/>
+					<p:selectOneRadio value="#{funcionarioBean.funcionario.tipoContrato}">
+						<f:selectItem itemValue="PJ" itemLabel="PJ"/>
+						<f:selectItem itemValue="CLT" itemLabel="CLT"/>
+					</p:selectOneRadio>
+					
+					<p:outputLabel value="Setor: "/>
+					<p:selectOneMenu value="#{funcionarioBean.funcionario.setor}">
+						<f:selectItem itemValue="rh" itemLabel="RH"/>
+						<f:selectItem itemValue="vendas" itemLabel="VENDAS"/>
+						<f:selectItem itemValue="adm" itemLabel="ADMINISTRATIVO"/>
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Cargo: "/>
+					<p:inputText value="#{funcionarioBean.funcionario.cargo}"/>
+					
+					<p:outputLabel value="Avaliação: "/>
+					<p:rating value="#{funcionarioBean.funcionario.notaAvaliacao}"/>
+					
+					<p:outputLabel value="Atividades: "/>
+					<p:inputTextarea value="#{funcionarioBean.funcionario.atividades}"/>
+					
+					<p:commandButton value="Salvar" action="#{funcionarioBean.salvar}" update="formulario"/>
+					<p:link outcome="listagem" value="Listar"/>
+				</p:panelGrid>
+			</p:panel>
+		</h:form>
+	</h:body>
+	
+</html>
